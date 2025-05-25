@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://kit.fontawesome.com/44ddc9fabc.js" crossorigin="anonymous"></script>
+    <title>Портфоліо Павло Туз</title>
+</head>
+<body id="about">
+    <div class="modal">
+        <div class="modal-content">
+            <img src="./images/my-photo.jpg" alt="Pavlo Tuz" class="my-photo-modal">
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <ul class="header-list">
+                    <li class="header-list-el">
+                        <img src="./images/my-photo.jpg" alt="Pavlo Tuz" class="image my-photo-header">
+                        <a href="#about" class="header-link current">
+                            <p class="header-para">Про мене</p>
+                        </a>
+                    </li>
+                    <li class="header-list-el">
+                        <a href="#education" class="header-link noncurrent">
+                            <i class="fa-solid fa-school"></i>
+                            <p class="header-para">Освіта</p>
+                        </a>
+                    </li>
+                    <li class="header-list-el">
+                        <a href="#skills" class="header-link noncurrent">
+                            <i class="fa-sharp fa-solid fa-bolt"></i>
+                            <p class="header-para">Навички</p>
+                        </a>
+                    </li>
+                    <li class="header-list-el">
+                        <a href="#projects" class="header-link noncurrent">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <p class="header-para">Проєкти</p>
+                        </a>
+                    </li>
+                    <li class="header-list-el">
+                        <a href="#contacts" class="header-link noncurrent">
+                            <i class="fa-solid fa-message"></i>
+                            <p class="header-para">Контакти</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section class="hero main-section">
+                <h1 id="h1" class="visually-hidden">Павло Туз</h1>
+                <div class="hero-wrapper">
+                    <p class="hero-para _anim-items">
+                        Привіт! Мене звати Павло Туз. Я джава скрипт фронтенд розробник з Києва
+                        <img src="./images/ua-flag.jpg" alt="flag Ukraine" class="image image-ua-flag">
+                        </div>
+                    </p>
+            </section>
+            <section id="education" class="education main-section">
+                <h2 class="main-title _anim-items">Освіта</h2>
+                <p class="education-para _anim-items">Зараз я навчаюсь на 3 курсі на факультеті Комп'ютерних наук в університеті КРОК</p>                   
+            </section>
+            <section id="skills" class="skills main-section">
+                <h2 class="main-title _anim-items">Мої навички</h2>
+                <ul class="skills-list">
+                    <li class="skills-list-el">
+                        <p class="skills-para _anim-items">
+                            HTML
+                        </p>
+                        <i class="fa-brands fa-html5 _anim-items icon"></i>
+                    </li>
+                    <li class="skills-list-el">
+                        <p class="skills-para _anim-items">
+                            CSS
+                        </p>
+                        <i class="fa-brands fa-css3-alt _anim-items icon"></i>
+                    </li>
+                    <li class="skills-list-el">
+                        <p class="skills-para _anim-items">
+                            Java Script
+                        </p>
+                        <i class="fa-brands fa-js _anim-items icon"></i>
+                    </li>
+                </ul>                   
+            </section>
+            <section id="projects" class="projects main-section">
+                <h2 class="main-title _anim-items">Проєкти</h2>
+                <ul class="projects-list _anim-items">
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Проєкт 1</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/code.jpg" alt="code" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Це мій перший проєкт з використанням мови джава скрипт</p>
+                    </li>
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Калькулятор</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/calculator.jpg" alt="calculator" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Це калькулятор, написаний мною з використанням знань джава скрипту</p>
+                    </li>
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Список справ</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/to-do-list.jpg" alt="to do list" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Сайт для запису своїх справ (To do list)</p>
+                    </li>
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Прогноз погоди</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/wether.jpg" alt="weather tracker" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Сайт для перегляду погодніх умов, який отримує дані про погоду з відкритого API та відображає їх у користувацькому інтерфейсі.</p>
+                    </li>
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Гра хрестики нулики</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/crosses-zeros.jpg" alt="crosses zeros" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Гра для проведення вільного часу з своїми друзями</p>
+                    </li>
+
+                    <li class="projects-list-el">
+                        <h3 class="projects-list-el-title">Фільтр зображень</h3>
+                        <a href="#" class="projects-list-el-ref">
+                            <img src="./images/filtered-photos.jpg" alt="filtered photos" class="projects-screen">
+                        </a>
+                        <p class="projects-el-list-para">Це сайт на якому можна накладати різні фільтри на зображення</p>
+                    </li>
+                </ul>                
+            </section>
+            <section id="contacts" class="contacts main-section">
+                <h2 class="main-title _anim-items">Мої контакти</h2>
+                <ul class="contacts-list">
+                    <li class="contacts-list-el _anim-items">
+                        <a href="tel:+48794670497" class="contacts-ref tel-ref">
+                            <i class="fa-solid fa-phone"></i>
+                            + 48 794 670 497
+                        </a>
+                    </li>
+                    <li class="contacts-list-el _anim-items">
+                        <a href="mailto:ptuztuz2@gmail.com" class="contacts-ref email-ref">
+                            <i class="fa-solid fa-envelope"></i>
+                            ptuztuz2@gmail.com
+                        </a>
+                    </li>
+                    <li class="contacts-list-el _anim-items">
+                        <a target="_blank" rel="noopener nofollow noreferrer" href="https://t.me/cchi_na" class="contacts-ref tg-ref">
+                            <i class="fa-brands fa-telegram"></i>
+                            Telegram</a>
+                    </li>
+                </ul>
+                <p class="copyright _anim-items">©All rights reserved</p>
+            </section>
+        </div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+</html>
