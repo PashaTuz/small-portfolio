@@ -1,0 +1,263 @@
+﻿/* === BASE STYLES === */
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+
+.main-page {
+    width: 100%;
+    background: linear-gradient(90deg, #cfa9d8 0%, #aad8fa 88.1%, #a5deff 100%);
+}
+
+.wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1170px;
+    position: relative;
+}
+
+.main-page-text-container {
+    border-radius: 40px;
+    background: #fff;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.main-page-hello-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1b1d1f;
+    margin: 0 0 60px 0;
+}
+
+.main-page-title {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 112%;
+    color: #1b1d1f;
+    margin: 0 0 24px 0;
+}
+
+.main-page-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1b1d1f;
+    margin: 0 0 32px 0;
+}
+
+.main-page-button {
+    border-radius: 8px;
+    padding: 12px 24px;
+    width: 172px;
+    height: 48px;
+    background-color: rgba(255, 107, 10, 0.69);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+/* === FACTS SECTION === */
+.facts {
+    padding: 48px 20px 100px;
+    text-align: center;
+}
+
+.facts-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 150%;
+    color: #1b1d1f;
+    margin: 0 0 32px 0;
+}
+
+.facts-deskription {
+    max-width: 800px; /* обмежує ширину блоку */
+    margin: 0 auto 24px; /* центрований блок з відступом знизу */
+    white-space: normal; /* дозволяє переносити текст */
+    word-wrap: break-word; /* переносить довгі слова */
+    font-size: 20px; /* трішки менший шрифт */
+    line-height: 1.5;
+    color: #1b1d1f;
+}
+
+.facts-item {
+    width: calc((100% / 3) - 16px);
+    margin: 12px auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.facts-item-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: #1b1d1f;
+    margin-bottom: 12px;
+}
+
+.facts-item-title-deskription {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #1b1d1f;
+}
+
+/* === FORM SECTION === */
+.form-container {
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(90deg, #cfa9d8 0%, #aad8fa 88.1%, #a5deff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background: #fff;
+    border-radius: 40px;
+    padding: 32px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    max-width: 480px; /* стало вужче */
+}
+
+/* Стиль заголовку форми "Запиши гуся до Бандерозагону" */
+.form-main-heading {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #1b1d1f;
+    margin-bottom: 24px;
+    line-height: 120%;
+}
+
+.form-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: #1b1d1f;
+    margin: 0 0 12px;
+}
+
+.form-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #1b1d1f;
+    margin-bottom: 24px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.form-field-label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1b1d1f;
+    margin-bottom: 6px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-button {
+    position: relative;
+    overflow: visible; /* щоб анімація не обрізалась */
+    border-radius: 8px;
+    padding: 12px 24px;
+    width: 172px;
+    height: 48px;
+    background-color: rgba(255, 107, 10, 0.69);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+    .form-button img.gus-anim-btn {
+        position: absolute;
+        top: 0%; /* піднято вище від центру */
+        left: 30%;
+        width: 1200px;
+        height: 1000px;
+        transform: translate(-50%, -50%);
+        display: none;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+
+    .form-button:enabled {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+/* === ГУСЬ === */
+.gus-anim {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 200px auto 0;
+}
+
+/* === RESPONSIVE ADAPTATION === */
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-page-title {
+        font-size: 48px;
+    }
+
+    .facts-item {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .main-page-text-container,
+    .form {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .main-page-title {
+        font-size: 36px;
+    }
+
+    .facts-item {
+        width: 100%;
+    }
+
+    .main-page-button,
+    .form-button {
+        width: 100%;
+    }
+}
