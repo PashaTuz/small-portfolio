@@ -6,11 +6,11 @@ const HEIGHT = 800;
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
 
-// Завантаження зображень
+// Г‡Г ГўГ Г­ГІГ Г¦ГҐГ­Г­Гї Г§Г®ГЎГ°Г Г¦ГҐГ­Гј
 const bgImage = new Image();
 bgImage.src = 'background.png';
 
-const playerImagesSrc = ['player1.png', 'player2.png', 'player3.png']; // Приклад анімації
+const playerImagesSrc = ['player1.png', 'player2.png', 'player3.png']; // ГЏГ°ГЁГЄГ«Г Г¤ Г Г­ВіГ¬Г Г¶ВіВї
 const playerImages = [];
 let playerImageIndex = 0;
 
@@ -26,7 +26,7 @@ playerImagesSrc.forEach(src => {
   playerImages.push(img);
 });
 
-// Об'єкти гри
+// ГЋГЎ'ВєГЄГІГЁ ГЈГ°ГЁ
 let bgX1 = 0;
 let bgX2 = WIDTH;
 const bgSpeed = 3;
@@ -46,12 +46,12 @@ const bonuses = [];
 let score = 0;
 let gameOver = false;
 
-// Клавіатурний ввод
+// ГЉГ«Г ГўВіГ ГІГіГ°Г­ГЁГ© ГўГўГ®Г¤
 const keys = {};
 window.addEventListener('keydown', e => keys[e.key] = true);
 window.addEventListener('keyup', e => keys[e.key] = false);
 
-// Функції створення ворогів та бонусів
+// Г”ГіГ­ГЄГ¶ВіВї Г±ГІГўГ®Г°ГҐГ­Г­Гї ГўГ®Г°Г®ГЈВіГў ГІГ  ГЎГ®Г­ГіГ±ВіГў
 function createEnemy() {
   const y = Math.random() * (HEIGHT - 90);
   enemies.push({
@@ -74,7 +74,7 @@ function createBonus() {
   });
 }
 
-// Таймери для створення ворогів і бонусів
+// Г’Г Г©Г¬ГҐГ°ГЁ Г¤Г«Гї Г±ГІГўГ®Г°ГҐГ­Г­Гї ГўГ®Г°Г®ГЈВіГў Ві ГЎГ®Г­ГіГ±ВіГў
 setInterval(() => {
   if (!gameOver) createEnemy();
 }, 1500);
@@ -83,13 +83,13 @@ setInterval(() => {
   if (!gameOver) createBonus();
 }, 2000);
 
-// Анімація гравця (зміна картинок)
+// ГЂГ­ВіГ¬Г Г¶ВіГї ГЈГ°Г ГўГ¶Гї (Г§Г¬ВіГ­Г  ГЄГ Г°ГІГЁГ­Г®ГЄ)
 setInterval(() => {
   playerImageIndex = (playerImageIndex + 1) % playerImages.length;
   player.image = playerImages[playerImageIndex];
 }, 200);
 
-// Функція перевірки колізії
+// Г”ГіГ­ГЄГ¶ВіГї ГЇГҐГ°ГҐГўВіГ°ГЄГЁ ГЄГ®Г«ВіГ§ВіВї
 function isColliding(a, b) {
   return !(
     a.x > b.x + b.width ||
@@ -99,7 +99,7 @@ function isColliding(a, b) {
   );
 }
 
-// Основний цикл гри
+// ГЋГ±Г­Г®ГўГ­ГЁГ© Г¶ГЁГЄГ« ГЈГ°ГЁ
 function gameLoop() {
   if (gameOver) {
     ctx.fillStyle = 'white';
@@ -109,10 +109,10 @@ function gameLoop() {
     return;
   }
 
-  // Очищення екрану
+  // ГЋГ·ГЁГ№ГҐГ­Г­Гї ГҐГЄГ°Г Г­Гі
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
-  // Рух фону (паралакс)
+  // ГђГіГµ ГґГ®Г­Гі (ГЇГ Г°Г Г«Г ГЄГ±)
   bgX1 -= bgSpeed;
   bgX2 -= bgSpeed;
   if (bgX1 <= -WIDTH) bgX1 = WIDTH;
@@ -120,16 +120,16 @@ function gameLoop() {
   ctx.drawImage(bgImage, bgX1, 0, WIDTH, HEIGHT);
   ctx.drawImage(bgImage, bgX2, 0, WIDTH, HEIGHT);
 
-  // Рух гравця
+  // ГђГіГµ ГЈГ°Г ГўГ¶Гї
   if (keys['ArrowUp'] && player.y > 0) player.y -= player.speed;
   if (keys['ArrowDown'] && player.y + player.height < HEIGHT) player.y += player.speed;
   if (keys['ArrowLeft'] && player.x > 0) player.x -= player.speed;
   if (keys['ArrowRight'] && player.x + player.width < WIDTH) player.x += player.speed;
 
-  // Малюємо гравця
+  // ГЊГ Г«ГѕВєГ¬Г® ГЈГ°Г ГўГ¶Гї
   ctx.drawImage(player.image, player.x, player.y, player.width, player.height);
 
-  // Рух та відображення ворогів
+  // ГђГіГµ ГІГ  ГўВіГ¤Г®ГЎГ°Г Г¦ГҐГ­Г­Гї ГўГ®Г°Г®ГЈВіГў
   for (let i = enemies.length - 1; i >= 0; i--) {
     const e = enemies[i];
     e.x -= e.speed;
@@ -142,7 +142,7 @@ function gameLoop() {
     if (e.x + e.width < 0) enemies.splice(i, 1);
   }
 
-  // Рух та відображення бонусів
+  // ГђГіГµ ГІГ  ГўВіГ¤Г®ГЎГ°Г Г¦ГҐГ­Г­Гї ГЎГ®Г­ГіГ±ВіГў
   for (let i = bonuses.length - 1; i >= 0; i--) {
     const b = bonuses[i];
     b.y += b.speed;
@@ -156,7 +156,7 @@ function gameLoop() {
     if (b.y > HEIGHT) bonuses.splice(i, 1);
   }
 
-  // Відображення рахунку
+  // Г‚ВіГ¤Г®ГЎГ°Г Г¦ГҐГ­Г­Гї Г°Г ГµГіГ­ГЄГі
   ctx.fillStyle = 'black';
   ctx.font = '20px Verdana';
   ctx.fillText(`Score: ${score}`, WIDTH - 150, 30);
@@ -164,7 +164,7 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Чекаємо завантаження фону і стартуємо гру
+// Г—ГҐГЄГ ВєГ¬Г® Г§Г ГўГ Г­ГІГ Г¦ГҐГ­Г­Гї ГґГ®Г­Гі Ві Г±ГІГ Г°ГІГіВєГ¬Г® ГЈГ°Гі
 bgImage.onload = () => {
   enemyImage.onload = () => {
     bonusImage.onload = () => {
