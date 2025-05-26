@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Бандерогусь</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="preload" href="./img/gus-anim.gif" as="image" />
+</head>
+<body>
+    <section class="main-page">
+        <div class="wrapper">
+            <div class="main-page-text-container">
+                <p class="main-page-hello-text">Доброго вечора, ми з України</p>
+                <h1 class="main-page-title">Бандерогусь</h1>
+                <p class="main-page-description">
+                    Спеціальний бойовий гусак із біолабораторій України. Пишаюся своїми
+                    подвигами, бороню Батьківщину та підтримую позитивний дух народу.
+                    Слава Україні!
+                </p>
+                <button class="main-page-button" id="go-to-form-btn">
+                    Запустити гуся
+                </button>
+            </div>
+            <img src="img/gus.svg" alt="Banderogus" />
+        </div>
+    </section>
+
+    <section class="facts">
+        <img src="img/trezub.svg" alt="Truzub" class="facts-truzub" />
+        <h2 class="facts-title">Цікаві факти про бандерогусей</h2>
+        <p class="facts-deskription">
+            Зазвичай бандерогуси — виключно мирні птахи. Але у разі небезпеки можуть
+            атакувати ворога системою надпотужного озброєння. Також нищать
+            психологічно, активуючи високочастотне шипіння та розмахування крилами
+        </p>
+        <div class="wrapper">
+            <div class="facts-item">
+                <img src="img/gus1.svg" alt="Gus facts 1" />
+                <h3 class="facts-item-title">Система навігації</h3>
+                <p class="facts-item-title-deskription-2">
+                    Супутниковий GPS та ехолокатори розпізнають ворожу техніку навіть на
+                    етапі збірки
+                </p>
+            </div>
+
+            <div class="facts-item">
+                <img src="img/gus2.svg" alt="Gus facts 2" />
+                <h3 class="facts-item-title">Очі-тепловізори</h3>
+                <p class="facts-item-title-deskription">
+                    Допомагають виявити характер сигнатури об’єктів та значно підвищують
+                    точність удару
+                </p>
+            </div>
+
+            <div class="facts-item">
+                <img src="img/gus3.svg" alt="Gus facts 3" />
+                <h3 class="facts-item-title">Байракрила</h3>
+                <p class="facts-item-title-deskription">
+                    Можуть нести 2-4 керовані ракети, що вражають ціль на відстані
+                    «ніхріна собі» кілометрів
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-container">
+        <form class="form" id="form">
+            <h2 class="form-main-heading">Запиши гуся до Бандерозагону</h2>
+
+            <p class="form-description">Поділися, будь ласка, іменем та поштою</p>
+
+            <!-- Поле для імені -->
+            <div class="form-field">
+                <label class="form-field-label" for="name">Ім’я</label>
+                <input id="name"
+                       type="text"
+                       class="form-input"
+                       placeholder="Гусак Патріот"
+                       required />
+            </div>
+
+            <!-- Поле для пошти -->
+            <div class="form-field">
+                <label class="form-field-label" for="email">Пошта</label>
+                <input id="email"
+                       type="email"
+                       class="form-input"
+                       placeholder="your@email.com"
+                       required />
+            </div>
+
+            <button type="submit" class="form-button" disabled>
+                Записатись
+                <img src="./img/gus-anim.gif" alt="Анімація гуся" class="gus-anim-btn" />
+            </button>
+
+            <div id="animation-container" style="display:none; text-align:center; margin-top:20px;">
+                <img src="./img/gus-anim.gif" alt="Goose animation" style="max-width: 300px; width: 100%; height: auto;" />
+            </div>
+
+        </form>
+    </section>
+
+    <div id="animation-container" style="display:none; text-align:center; margin-top:20px;">
+        <img src="./img/gus-anim.gif" alt="Гусь анімація" class="gus-anim" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>
