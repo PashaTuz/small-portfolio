@@ -1,0 +1,216 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #d3a0ff, #a3c8ff); /* Градієнт з фіолетового до голубого */
+    color: #333; /* Темний текст для контрасту */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 30px 0;
+    text-align: center;
+}
+
+    header h1 {
+        font-size: 2.5rem;
+        color: #fff; /* Білий текст */
+    }
+
+nav {
+    text-align: center;
+    margin-top: 0px;
+}
+
+    nav a {
+        color: #fff; /* Білий текст для посилань */
+        text-decoration: none;
+        margin: 0 0px;
+        font-size: 1.1rem;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+        nav a:hover {
+            background-color: #ffab3d; /* Ніжно-оранжевий фон при наведенні */
+        }
+
+#facts,
+#discounts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Висота секції автоматична */
+    text-align: center;
+    padding: 15px;
+    margin-top: 35px; /* Зменшено відступ зверху */
+    margin-bottom: 200px; /* Зменшено відступ знизу */
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+}
+.game-text {
+    margin-bottom: 30px; /* Відстань між текстом і фото */
+}
+.game-image-wrapper {
+    text-align: center;
+    padding-top: 20px ;
+}
+
+#game-image {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+}
+
+
+#game-image-link {
+    display: inline-block;
+}
+
+#game-image:hover {
+    transform: scale(1.05);
+}
+
+
+.button-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff; /* Колір кнопки */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+    .button-link:hover {
+        background-color: #0056b3;
+    }
+
+#facts h2 {
+    font-size: 2rem;
+    margin-bottom: 0px;
+    color: #333;
+}
+
+/* Контейнер для всіх цифр і фактів */
+.discounts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Відстань між блоками */
+}
+
+/* Стилізація кожного елемента з цифрою */
+.discount-item {
+    display: flex;
+    align-items: flex-start; /* Вирівнюємо цифру і текст по верхньому краю */
+    gap: 15px; /* Відстань між цифрою і текстом */
+}
+
+/* Стилізація цифри */
+.fact-number {
+    font-size: 2rem; /* Розмір цифри */
+    font-weight: bold; /* Товстий шрифт для цифри */
+    color: #ffab3d; /* Оранжевий колір для цифри */
+    text-align: center; /* Центрування цифри */
+    padding: 10px; /* Відступи всередині цифри */
+    background-color: #fff2e5; /* Легкий фон для цифри */
+    border-radius: 50%; /* Кругла форма для цифри */
+    width: 40px; /* Ширина цифри */
+    height: 40px; /* Висота цифри */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px; /* Відступ зверху для вирівнювання з текстом */
+}
+
+.columns-container {
+    display: flex; /* Використовуємо flexbox для розташування елементів в ряд */
+    gap: 20px; /* Відстань між колонками */
+    flex-wrap: nowrap; /* Не дозволяємо елементам переноситись на новий рядок */
+    justify-content: space-between; /* Розподіляємо елементи по ширині */
+}
+
+.column,
+.white-square {
+    flex: 1; /* Додаємо однакову ширину для кожного елемента */
+    min-width: 240px; /* Мінімальна ширина для кожного елемента */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0px;
+}
+
+.interactive {
+    background-color: #fff2e5; /* Ніжно-оранжевий фон для інтерактивних елементів */
+    padding: 15px;
+    margin: 0px 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #ffab3d; /* Оранжевий текст */
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+.text {
+    background-color: #fff2e5; /* Ніжно-оранжевий фон для інтерактивних елементів */
+    padding: 15px;
+    margin: 0px 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #ffab3d; /* Оранжевий текст */
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+}
+/* Центрування і зменшення фото */
+/* Центрування і зменшення фото */
+.image-container {
+    display: flex;
+    justify-content: center; /* Центруємо фото по горизонталі */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.center-image {
+    width: 50%; /* Зменшуємо розмір фото до 50% */
+    height: auto; /* Пропорції зображення залишаються */
+    display: block; /* Зображення блочний елемент */
+    margin: 0 auto; /* Центруємо зображення */
+    max-height: 400px; /* Додаємо обмеження на максимальну висоту */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+footer {
+    background-color: #6a3bff; /* Фіолетовий фон для підвалу */
+    color: #fff; /* Білий текст */
+    text-align: center;
+    padding: 20px 0;
+}
+
+    footer p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
