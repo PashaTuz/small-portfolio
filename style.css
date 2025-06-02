@@ -1,0 +1,36 @@
+/* Видаляємо відступи, фонові кольори та рамки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    /* фон гри */
+    font-family: Verdana, sans-serif;
+}
+
+/* Canvas на весь екран */
+#gameCanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    border: none;
+}
+
+/* Рахунок всередині гри */
+#score {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+    font-weight: bold;
+}
