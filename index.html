@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Знижки</title>
+    <link rel="stylesheet" href="disconts.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="https://gusstyle2.netlify.app/" class="discount-button">Головна</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="https://osnovna-storinka.netlify.app/" class="discount-button back-button">⬅ Назад до магазину</a>
+
+
+        <h1>🎁 Наші знижки та пропозиції</h1>
+        <h1>Всі доступні акції.</h1>
+
+        <ul class="discount-list">
+            <li>
+                <button class="discount-btn">⚡ Отримай 5 % знижки всього за 150 очків</button>
+                <img src="5_відтсотків.png" alt="5% знижка" class="discount-image" />
+            </li>
+            <li>
+                <button class="discount-btn">⚡ Отримай 10% знижки всього за 500 очків</button>
+                <img src="10_відтсотків.png" alt="10% знижка" class="discount-image" />
+            </li>
+            <li>
+                <button class="discount-btn">⚡ Отримай 15% знижки всього за 999 очків</button>
+                <img src="15_відтсотків.png" alt="15% знижка" class="discount-image" />
+            </li>
+            <li>
+                <button id="show-wheel-btn">🏆 Зароби 900 балів і прокрути колесо фортуни</button>
+                <div class="wheel-modal" id="wheel-modal" style="display:none;">
+                    <span class="modal-close" id="close-wheel">&times;</span>
+                    <canvas id="wheel-canvas" width="400" height="400"></canvas>
+                    <button id="spin-wheel-btn">Крутити колесо</button>
+                    <p id="wheel-result"></p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Модальне вікно для фото -->
+        <div id="image-modal" class="modal" style="display:none;">
+            <span class="modal-close">&times;</span>
+            <img class="modal-content" id="modal-img" />
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 GusStyle. Усі права захищені.</p>
+    </footer>
+
+    <script>
+        // Відкриття фото в модалці
+        document.querySelectorAll('.discount-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Якщо це кнопка колеса — не відкривати фото
+                if (button.id === "show-wheel-btn") return;
+
+                const img = button.nextElementSibling;
+                if (!img || !img.getAttribute('src')) return;
+
+                const imgSrc = img.getAttribute('src');
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('modal-img');
+                modalImg.setAttribute('src', imgSrc);
+                modal.style.display = 'block';
+            });
+        });
+
+        // Закриття модального вікна фото
+        document.querySelector('#image-modal .modal-close').addEventListener('click', () => {
+            document.getElementById('image-modal').style.display = 'none';
+        });
+
+        document.getElementById('image-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                e.currentTarget.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        const wheelModal = document.getElementById("wheel-modal");
+        const openBtn = document.getElementById("show-wheel-btn");
+        const closeBtn = document.getElementById("close-wheel");
+        const canvas = document.getElementById("wheel-canvas");
+        const ctx = canvas.getContext("2d");
+        const spinBtn = document.getElementById("spin-wheel-btn");
+        const resultText = document.getElementById("wheel-result");
+
+        const segments = ["5% знижка", "Без виграшу", "10% знижка", "Бонус", "15% знижка", "Спробуй ще раз"];
+        const colors = ["#FFD700", "#FF8C00", "#ADFF2F", "#00CED1", "#FF69B4", "#B0C4DE"];
+        const arc = (2 * Math.PI) / segments.length;
+
+        function drawWheel() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < segments.length; i++) {
+                const angle = i * arc;
+                ctx.beginPath();
+                ctx.fillStyle = colors[i];
+                ctx.moveTo(200, 200);
+                ctx.arc(200, 200, 200, angle, angle + arc);
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(200, 200);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#000";
+                ctx.font = "16px Arial";
+                ctx.fillText(segments[i], 180, 10);
+                ctx.restore();
+            }
+        }
+
+        let wheelDrawn = false;
+
+        openBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // щоб не відкривалась модалка з фото
+            wheelModal.style.display = "flex";
+            resultText.textContent = "";
+            canvas.style.transform = "rotate(0deg)";
+            if (!wheelDrawn) {
+                drawWheel();
+                wheelDrawn = true;
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            wheelModal.style.display = "none";
+        });
+
+        spinBtn.addEventListener('click', () => {
+            spinBtn.disabled = true;
+            const rotation = Math.floor(Math.random() * 360) + 720;
+            let start = null;
+            let duration = 3000;
+
+            function animate(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                const current = easeOut(progress, 0, rotation, duration);
+                canvas.style.transform = `rotate(${current}deg)`;
+                if (progress < duration) {
+                    requestAnimationFrame(animate);
+                } else {
+                    const degrees = rotation % 360;
+                    const index = Math.floor((segments.length - degrees / 360 * segments.length) % segments.length);
+                    resultText.textContent = "🎉 Виграш: " + segments[index];
+                    spinBtn.disabled = false;
+                }
+            }
+
+            requestAnimationFrame(animate);
+        });
+
+        function easeOut(t, b, c, d) {
+            t /= d;
+            t--;
+            return c * (t * t * t + 1) + b;
+        }
+    </script>
+</body>
+</html>
