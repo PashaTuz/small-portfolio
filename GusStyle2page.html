@@ -2,12 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Геймофікований інтернет-магазин</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <div id="user-sidebar" class="sidebar">
+        <button id="close-sidebar" aria-label="Закрити панель">&times;</button>
+        <h3>Кабінет користувача</h3>
+
+        <!-- Розділ користувача -->
+        <div id="user-profile" class="user-profile">
+            <div class="avatar-section">
+                <img id="user-avatar"
+                     src="zaglushka.jpg"
+                     alt="Поточний аватар"
+                     class="avatar-display"
+                     tabindex="0" />
+                <p>Натисніть на аватар, щоб змінити</p>
+                <div class="camera-row">
+                    <div class="custom-upload-block"
+                         onclick="document.getElementById('avatar-upload').click()">
+                        <img src="camera.png"
+                             class="avatar-option upload-trigger"
+                             alt="Завантажити фото" />
+                        <span class="upload-text"> - Виберіть свій власний аватар</span>
+                    </div>
+                    <input type="file"
+                           id="avatar-upload"
+                           accept="image/*"
+                           style="display: none" />
+                </div>
+
+                <div id="avatar-selection" class="avatar-selection hidden">
+                    <h4>Оберіть аватар</h4>
+                    <div class="preset-avatars">
+                        <img src="gus.svg" class="avatar-option" alt="gus" tabindex="0" />
+                        <img src="gus1.svg" class="avatar-option" alt="gus1" tabindex="0" />
+                        <img src="gus2.svg" class="avatar-option" alt="gus2" tabindex="0" />
+                        <img src="gus3.svg" class="avatar-option" alt="gus3" tabindex="0" />
+                        <img src="gus4.png" class="avatar-option" alt="gus4" tabindex="0" />
+                        <img src="trezub.svg" class="avatar-option" alt="trezub" tabindex="0" />
+                        <img src="zaglushka.jpg" class="avatar-option" alt="zaglushka" tabindex="0" />
+                    </div>
+                    <label for="avatar-upload" class="upload-label">Завантажити свій аватар</label>
+                    <input type="file" id="avatar-upload" accept="image/*" hidden />
+                </div>
+            </div>
+
+            <div class="user-info">
+                <p><strong>Ім'я:</strong> <span id="user-name">Pasha Tuz</span></p>
+                <p><strong>Пошта:</strong> <span id="user-email">ptuztuz2@gmail.com</span></p>
+                <p><strong>Бали:</strong> <span id="user-points">999</span></p>
+            </div>
+
+            <hr class="divider" />
+            <div class="user-actions">
+                <a href="discounts.html" class="discount-button">🎁 Знижки</a>
+                <button id="toggle-my-discounts" class="discount-button">⭐ Мої знижки</button>
+                <div id="my-discounts-section" style="display: none; margin-top: 10px;">
+                    <button class="discount-btn" data-large-src="-5_qr_ код.png">
+                        <img src="-5.png" alt="-5%" class="discount-img" />
+                    </button>
+                    <button class="discount-btn" data-large-src="-10_qr_код.png">
+                        <img src="-10.jpg" alt="-10%" class="discount-img" />
+                    </button>
+                    <button class="discount-btn" data-large-src="-15_qr_код.png">
+                        <img src="-15.png" alt="-15%" class="discount-img" />
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
     <header>
+        <div class="user-panel">
+            <div class="user-box">
+                <div class="user-top">
+                    <span class="user-name">👤 Pasha Tuz</span>
+                    <a href="#user" class="user-link">Кабінет</a>
+                </div>
+                <span class="user-points">Рахунок:999</span>
+            </div>
+        </div>
         <h1>Вітаємо у нашому інтернет-магазині</h1>
         <nav>
             <a href="https://gusstyle2.netlify.app/">Головна</a>
@@ -26,7 +105,8 @@
         <div class="columns-container">
             <div class="column">
                 <p class="interactive">
-                    Чи знали ви, що деякі магазини використовують механіки відеоігор, щоб залучити клієнтів? Наприклад, програми лояльності з рівнями і бонусами схожі на систему досвіду в RPG!
+                    Чи знали ви, що деякі магазини використовують механіки відеоігор, щоб залучити клієнтів?
+                    Наприклад, програми лояльності з рівнями і бонусами схожі на систему досвіду в RPG!
                 </p>
             </div>
             <div class="column">
@@ -68,14 +148,17 @@
                 </p>
             </div>
             <div class="discount-item">
-                <a href="https://roaring-churros-d0487f.netlify.app/" class="fact-number button-link">3</a>
+                <a href="https://roaring-churros-d0487f.netlify.app/"
+                   class="fact-number button-link">3</a>
                 <p class="interactive">
                     Тут такого не буде, Ви до нас прийшли, зареєструвались, тим самим підписались на отримання різних акцій від нас і все. І ти можеш грати.
                 </p>
             </div>
             <div class="discount-item">
                 <div class="fact-number">4</div>
-                <p class="interactive">Щоб отримати знижки у нашому магазині, потрібно грати у наші ігри.</p>
+                <p class="interactive">
+                    Щоб отримати знижки у нашому магазині, потрібно грати у наші ігри.
+                </p>
             </div>
             <div class="discount-item">
                 <div class="fact-number">5</div>
@@ -90,16 +173,54 @@
         <h2>Наші ігри</h2>
         <p class="text">Вибирай, грай та вигравай</p>
         <div class="game-image-wrapper">
-            <a href="https://gusstyle-game.netlify.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://gusstyle-game.netlify.app/"
+               target="_blank"
+               rel="noopener noreferrer">
                 <img src="avatar.jpg" alt="avatar" id="game-image" />
             </a>
         </div>
     </section>
+    <div id="modal" class="modal" style="display:none;">
+        <span id="modal-close" class="modal-close">&times;</span>
+        <img id="modal-img" class="modal-content" alt="Відкрите фото" />
+    </div>
 
     <footer>
-        <p>© 2025 GusІенду. Усі права захищені.</p>
+        <p>© 2025 GusStyle. Усі права захищені.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <div id="overlay" class="overlay"></div>
+
+    <script src="form.js"></script>
+    <script>
+        // Перемикач показу блоку "Мої знижки"
+        document.getElementById('toggle-my-discounts').addEventListener('click', function () {
+            const section = document.getElementById('my-discounts-section');
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Додаємо обробники подій до кнопок знижок
+        document.querySelectorAll('.discount-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = document.getElementById('modal'); // модальне вікно
+                const modalImg = document.getElementById('modal-img'); // зображення всередині
+                const imgSrc = btn.getAttribute('data-large-src'); // велике зображення
+                modalImg.src = imgSrc; // встановлення src
+                modal.style.display = 'flex'; // показати модальне вікно
+            });
+        });
+
+        // Закриття модального вікна по кнопці ✖
+        document.getElementById('modal-close').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        // Закриття модального вікна при кліку поза зображенням
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                document.getElementById('modal').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
