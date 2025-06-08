@@ -7,6 +7,186 @@ body {
     padding: 0;
 }
 
+.user-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.user-box {
+    background-color: #ffab3d;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.user-link {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+    .user-link:hover {
+        color: #333;
+    }
+
+.user-points {
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #ffab3d;
+    color: white;
+    padding: 20px;
+    box-shadow: -4px 0 8px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Додано скрол по вертикалі */
+}
+
+    .sidebar.visible {
+        transform: translateX(0);
+    }
+
+#close-sidebar {
+    align-self: flex-end;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1400;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+    .overlay.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+.avatar-selection {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .avatar-selection.hidden {
+        display: none;
+    }
+
+.preset-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.avatar-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+    .avatar-option:hover {
+        border: 2px solid #ffab3d;
+    }
+
+.current-avatar-preview {
+    margin-top: 15px;
+}
+
+.avatar-display {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2196f3;
+}
+
+#user-avatar {
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #2196f3;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    transition: border-color 0.3s ease;
+}
+
+    #user-avatar:hover {
+        border-color: #ffab3d;
+    }
+
+.custom-upload-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    justify-content: center;
+    cursor: pointer;
+}
+
+    .custom-upload-block img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        transition: transform 0.2s;
+    }
+
+    .custom-upload-block:hover img {
+        transform: scale(1.1);
+    }
+
+.upload-text {
+    font-size: 0.8rem;
+    color: #444;
+    font-weight: 500;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -118,11 +298,68 @@ nav {
     align-items: flex-start;
     gap: 15px;
 }
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px white;
+}
+
+.modal-close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Оновлений стиль для фото зі знижками */
+.discount-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+    .discount-btn img {
+        width: 80px; /* або ваш бажаний розмір */
+        height: auto;
+        display: block;
+    }
+
+.discount-img {
+    width: 80px; /* ширина зменшена */
+    height: auto; /* пропорційна висота */
+    margin: 5px;
+    border-radius: 8px;
+    object-fit: contain; /* щоб зображення не спотворювались */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .discount-img:hover {
+        transform: scale(1.1); /* трохи збільшуємо при наведенні */
+    }
 
 .fact-number {
     font-size: 2rem;
     font-weight: bold;
-    color: #ffab3d;
+    color: #333;
     text-align: center;
     padding: 10px;
     background-color: #fff2e5;
@@ -159,7 +396,7 @@ nav {
     margin: 0 0 10px 0;
     border-radius: 8px;
     font-size: 1.1rem;
-    color: #ffab3d;
+    color: #333;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     user-select: none;
@@ -171,7 +408,7 @@ nav {
     margin: 0 0 10px 0;
     border-radius: 8px;
     font-size: 1.1rem;
-    color: #ffab3d;
+    color: #333;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -207,7 +444,62 @@ footer {
         margin: 0;
     }
 
-/* === Адаптивність для мобільних телефонів === */
+.user-profile {
+    text-align: center;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+    .user-profile h2 {
+        margin: 10px 0 5px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .user-profile p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .user-profile .user-points {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #222;
+    }
+
+.discount-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .discount-button:hover {
+        background-color: #e6b800;
+    }
+
+.divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.user-actions {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Адаптивність для мобільних */
 @media (max-width: 600px) {
     header h1 {
         font-size: 1.8rem;
@@ -265,12 +557,11 @@ footer {
 
     #game-image {
         width: 90%;
-        max-width: 300px;
-        margin: 0 auto;
+        max-width: 280px;
     }
 
-    .center-image {
-        width: 90%;
-        max-height: 250px;
+    .sidebar {
+        width: 80vw;
+        max-width: 320px;
     }
 }
